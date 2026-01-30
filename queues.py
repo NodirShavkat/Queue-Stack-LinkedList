@@ -4,6 +4,10 @@ class Node:
         self.data = new_data
         self.next = None
 
+    def __str__(self):
+        return f"Node => {self.data}"
+    
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -13,12 +17,13 @@ class LinkedList:
 
         if not self.head:
             self.head = new_node
-            return
+            return ""
         
         temp = self.head
         while temp.next:
             temp = temp.next
         temp.next = new_node
+        return ""
 
     def delete(self, value):
         temp = self.head
@@ -34,11 +39,36 @@ class LinkedList:
             temp = temp.next
         
     def show(self):
+        if self.head is None:
+            print("LList is empty")
+            return ""
+        
         temp = self.head
         while temp:
             print(temp.data, end=" > ")
             temp = temp.next
         print("None")
+        return ""
+    
+    def prepend(self, data):
+        new_node = Node(data)
+
+        if self.head is None:
+            self.head = new_node
+            return ""
+        
+        new_node.next = self.head
+        self.head = new_node
+        return ""
+    
+    def insert_after(self, prev_node, data):
+        if prev_node is None:
+            print("Prev Node is null")
+            return ""
+        new_node = Node(data)
+        new_node.next = prev_node.next
+        prev_node.next = new_node
+        return ""
 
 
 # Stack

@@ -1,6 +1,6 @@
-from queues import LinkedList, Stack, Queue
+from queues import Node, LinkedList, Stack, Queue
 
-# LinkedList
+#1 LinkedList
 ll = LinkedList()
 
 ll.append(10)
@@ -13,6 +13,18 @@ ll.show()
 
 ll.delete(30)
 ll.show()
+
+#2 LinkedList
+linked_list = LinkedList()
+
+linked_list.append('Monday')
+linked_list.append('Tuesday')
+linked_list.append('Wednesday')
+linked_list.prepend('Sunday')
+
+# print(linked_list.head)
+linked_list.insert_after(linked_list.head.next.next,'Test')
+print(linked_list.show())
 
 
 #1 Stack 
